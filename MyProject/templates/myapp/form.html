@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <h2 style="text-align:center">First Form</h2>
+      <a href="{% url 'myapp:form' %}">Form</a>
+      <br>
+      <a href="{% url 'myapp:index' %}">Home</a>
+
+
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" name="submit" value="submit">
+    </form>
+<hr>
+    {% if submitted %}
+      <h4>Username</h4>{{username}}
+      <h4>Email</h4>{{email}}
+      <h4>Choices</h4>{{choice}}
+      <h4>cc</h4>{{cc}}
+    {% endif %}
+  </body>
+</html>
+{% endblock %}

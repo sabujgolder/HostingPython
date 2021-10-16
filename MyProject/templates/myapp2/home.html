@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>Myapp Two</h1>
+<a href="{% url 'myapp2:modelform' %}">Model Form</a>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}<br>
+  <br>
+  <input type="submit" name="Submit" value="Submit">
+</form>
+{% endblock %}

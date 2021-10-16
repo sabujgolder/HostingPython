@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+{% load my_filter %}
+{% load static %}
+{% block body %}
+    <h1>Index Page</h1>
+
+    <nav>
+      <ul>
+        <li><a href="{% url 'myapp:form' %}">Form</a></li>
+        <li><a href="{% url 'myapp:index' %}">Home</a></li>
+        <li><a href="{% url 'myapp:artists' %}">Artists</a></li>
+      </ul>
+    </nav>
+
+    {% for k,v in val.items %}
+      <h4>{{v}}</h4>
+    {% endfor %}
+
+
+    <img src="{% static "images/img.PNG" %}" alt="">
+
+    <br>
+    <br>
+    {% for item in musician %}
+      {{item.id}}.{{item.First_Name}}
+      {{item.Last_Name}}
+      {{item.Instrument}}
+
+      <br>
+    {% endfor %}
+<br>
+
+    {{text|upper}}<br>
+    {{text|custom_filter}}
+
+{% endblock %}

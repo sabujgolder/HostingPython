@@ -1,0 +1,4 @@
+<h4>Artists</h4>
+{% for i in artists %}
+  <a href="{% url 'myapp:about' artist_id = i.id  %}">{{i.First_Name}}</a>  <br>
+{% endfor %}
